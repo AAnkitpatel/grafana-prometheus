@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  agent1:
+    build:
+      context: .
+      dockerfile: Dockerfile-agent1
+    container_name: agent1
+    networks:
+      - monitoring-net 
+  agent2:
+    build:
+      context: .
+      dockerfile: Dockerfile-agent2
+    container_name: agent2
+    networks:
+      - monitoring-net 
+  agent3:
+    build:
+      context: .
+      dockerfile: Dockerfile-agent3
+    container_name: agent3
+    networks:
+      - monitoring-net         
+networks:
+  monitoring-net:
+

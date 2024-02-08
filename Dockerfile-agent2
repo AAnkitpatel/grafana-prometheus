@@ -1,0 +1,19 @@
+# Use the official Alpine Linux as a base image
+FROM alpine:latest
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Download and install the node_exporter binary
+RUN apk --no-cache add wget && \
+    wget https://github.com/prometheus/node_exporter/releases/download/v1.2.2/node_exporter-1.2.2.linux-amd64.tar.gz && \
+    tar xvfz node_exporter-1.2.2.linux-amd64.tar.gz && \
+    mv node_exporter-1.2.2.linux-amd64/node_exporter /app/ && \
+    rm -rf node_exporter-1.2.2.linux-amd64.tar.gz node_exporter-1.2.2.linux-amd64 && \
+    apk del wget
+
+# Expose the necessary port
+EXPOSE 9100
+
+# Run node_exporter when the container starts
+CMD ["/app/node_exporter"]

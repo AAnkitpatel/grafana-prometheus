@@ -1,0 +1,21 @@
+groups:
+  - name: server_is_down
+    rules:
+      - alert: server_is_down
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "server is down"
+          description: "please check"
+  - name: server_is_up
+    rules:
+      - alert: server_is_up
+        expr: up == 1
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "server is up"
+          description: "not need to check"
