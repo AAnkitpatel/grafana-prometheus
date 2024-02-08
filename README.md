@@ -14,8 +14,8 @@ Make sure you have Docker and Docker Compose installed on your machine.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-monitoring-repo.git
-cd your-monitoring-repo
+git clone https://github.com/AAnkitpatel/grafana-prometheus.git
+cd grafana-prometheus
 ```
 ### 2. Set Up Docker Compose
 # Start the monitoring stack
